@@ -5,7 +5,7 @@ import {Row} from 'react-bootstrap';
 import {Col} from 'react-bootstrap';
 
 class Display extends Component {
-    constructor(){
+    constructor() {
         super();
         const img0 = require('./puppies/puppy0.jpeg');
         const img1 = require('./puppies/puppy1.jpeg');
@@ -24,7 +24,7 @@ class Display extends Component {
     }
 
     displayImage() {
-      var randomNum = Math.floor(Math.random() * 5);
+      var randomNum = this.props.randomNum(5);
       this.setState({
             index: randomNum
         });
@@ -37,10 +37,10 @@ class Display extends Component {
               <Container>
                 <Row>
                   <Col>
-                    <h3>Welcome to the Random Puppies App</h3>
+                    <h3>{this.props.title}</h3>
                   </Col>
                   <Col>
-                    <Button as="input" type="button" value="Next" onClick={this.displayImage.bind(this)}/>
+                    <Button onClick={this.displayImage.bind(this)}>Next</Button>
                   </Col>
                 </Row>
                 <br/>
